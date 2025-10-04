@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="preview">
+  <h2>{{ data.name }}</h2>
+  <p class="contact">
+    {% if data.email %} <strong>Email:</strong> {{ data.email }} {% endif %}
+    {% if data.phone %} | <strong>Phone:</strong> {{ data.phone }} {% endif %}
+  </p>
+  <p>
+    {% if data.linkedin %}<a href="{{ data.linkedin }}" target="_blank">LinkedIn</a>{% endif %}
+    {% if data.github %} | <a href="{{ data.github }}" target="_blank">GitHub</a>{% endif %}
+    {% if data.website %} | <a href="{{ data.website }}" target="_blank">Website</a>{% endif %}
+  </p>
+
+  <h3>About Me</h3>
+  <p>{{ data.about }}</p>
+
+  <h3>Skills</h3>
+  <ul>
+    {% for s in data.skills %}
+      <li>{{ s }}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Education</h3>
+  <p>{{ data.education }}</p>
+
+  <h3>Projects</h3>
+  <ul>
+    {% for p in data.projects %}
+      <li>{{ p }}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Certifications</h3>
+  <ul>
+    {% for c in data.certifications %}
+      <li>{{ c }}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Achievements</h3>
+  <ul>
+    {% for a in data.achievements %}
+      <li>{{ a }}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Interests</h3>
+  <p>{{ data.interests | join(', ') }}</p>
+
+  {% if download_link %}
+    <p style="margin-top:16px;">
+      <a class="btn" href="{{ url_for('download', filename=download_link) }}">Download PDF</a>
+    </p>
+  {% endif %}
+</div>
+{% endblock %}

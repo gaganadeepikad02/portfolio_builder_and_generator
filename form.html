@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Create Your Portfolio</h2>
+<form action="{{ url_for('generate') }}" method="post" enctype="multipart/form-data" class="form">
+  <label>Name (required)</label>
+  <input type="text" name="name" required>
+
+  <label>Email (required)</label>
+  <input type="email" name="email" required>
+
+  <label>Phone</label>
+  <input type="text" name="phone">
+
+  <label>LinkedIn (full URL)</label>
+  <input type="text" name="linkedin">
+
+  <label>GitHub (full URL)</label>
+  <input type="text" name="github">
+
+  <label>Website / Portfolio</label>
+  <input type="text" name="website">
+
+  <label>About Me</label>
+  <textarea name="about" rows="4"></textarea>
+
+  <label>Skills (comma separated or newline)</label>
+  <textarea name="skills" rows="2"></textarea>
+
+  <label>Education (describe schools, degrees, dates)</label>
+  <textarea name="education" rows="3"></textarea>
+
+  <label>Projects (one project per line)</label>
+  <textarea name="projects" rows="4"></textarea>
+
+  <label>Certifications (one per line)</label>
+  <textarea name="certifications" rows="3"></textarea>
+
+  <label>Achievements (one per line)</label>
+  <textarea name="achievements" rows="3"></textarea>
+
+  <label>Interests (comma separated)</label>
+  <input type="text" name="interests">
+
+  <div style="margin-top:12px;">
+    <button type="submit">Generate Portfolio & PDF</button>
+  </div>
+</form>
+{% endblock %}
